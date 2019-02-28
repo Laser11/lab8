@@ -8,3 +8,12 @@ var data = {
 exports.adminView = function(request, response){
   response.render('rsvp', data);
 };
+exports.addRSVP = function(request,response) {
+	var rsvpEmail = request.body.rsvpEmail;
+	//Tells you when POST request is made
+	console.log(rsvpEmail);
+	data.rsvp.push(rsvpEmail); //Add to current data
+
+	//Send back some data for the browser to know it worked
+	response.send(rsvpEmail);
+}
